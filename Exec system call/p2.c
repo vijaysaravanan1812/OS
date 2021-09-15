@@ -3,15 +3,18 @@
 #include<unistd.h>
 int main()
 {
-        //A null terminated array of character 
-        //pointers
-        char *args[]={"./p1",NULL};
-        execvp("./p1",NULL);
-      
-        /*All statements are ignored after execvp() call as this whole 
-        process(execDemo.c) is replaced by another process (EXEC.c)
-        */
-        printf("Ending-----");
+    int id = fork();
+    if (id == 0)
+    {
+        printf("Enter command\t");  
+        char a[10];
+        scanf("%s",a); 
+        execv(a,NULL);
+    }
+    else
+    {
+        wait(NULL);
+    }
       
     return 0;
 }

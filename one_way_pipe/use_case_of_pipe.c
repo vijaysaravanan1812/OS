@@ -5,8 +5,21 @@
 #include<unistd.h>
 #include<sys/wait.h>
 
-int main()
+int main(int argc, char *argv[])
 {
+
+    for (int i = 1; i < argc; i++)
+    {
+        printf("%d \t",((*argv[i])));
+    }
+    printf("\n");
+    for (int i = 1; i < argc; i++)
+    {
+        printf("%d \t",((*argv[i]) - 48));
+    }
+
+    
+    printf("\n");
     int arr[] = {1,2,3,4,5,6,7,8,9,10};
     int size  = sizeof(arr)/sizeof(arr[0]);
     int fd[2]; int start,end,total_sum;
